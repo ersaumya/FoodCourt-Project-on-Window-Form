@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{72CFF613-3B7E-4D4A-8ED7-93491CFE95B7}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>foodcourt</RootNamespace>
+    <AssemblyName>foodcourt</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="additems.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="additems.Designer.cs">
+      <DependentUpon>additems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="additemstype.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="additemstype.Designer.cs">
+      <DependentUpon>additemstype.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Addsalesperson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Addsalesperson.Designer.cs">
+      <DependentUpon>Addsalesperson.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Adminhome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Adminhome.Designer.cs">
+      <DependentUpon>Adminhome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="adminlogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="adminlogin.Designer.cs">
+      <DependentUpon>adminlogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Autogenerateclass.cs" />
+    <Compile Include="makesales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="makesales.Designer.cs">
+      <DependentUpon>makesales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="salepersonhome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="salepersonhome.Designer.cs">
+      <DependentUpon>salepersonhome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="salespersonlogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="salespersonlogin.Designer.cs">
+      <DependentUpon>salespersonlogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="updatestock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="updatestock.Designer.cs">
+      <DependentUpon>updatestock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="viewstock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="viewstock.Designer.cs">
+      <DependentUpon>viewstock.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="additems.resx">
+      <DependentUpon>additems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="additemstype.resx">
+      <DependentUpon>additemstype.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Addsalesperson.resx">
+      <DependentUpon>Addsalesperson.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Adminhome.resx">
+      <DependentUpon>Adminhome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="adminlogin.resx">
+      <DependentUpon>adminlogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="makesales.resx">
+      <DependentUpon>makesales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="salepersonhome.resx">
+      <DependentUpon>salepersonhome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="salespersonlogin.resx">
+      <DependentUpon>salespersonlogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="updatestock.resx">
+      <DependentUpon>updatestock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="viewstock.resx">
+      <DependentUpon>viewstock.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resources\iitlogo.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
