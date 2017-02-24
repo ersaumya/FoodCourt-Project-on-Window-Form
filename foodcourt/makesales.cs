@@ -16,10 +16,12 @@ namespace foodcourt
 {
     public partial class makesales : Form
     {
+        int totalsales = 0;
         string billid = "bid_";
         string bmid = "bmid_";
         double price = 0.0;
         int qtyinitems = 0;
+        double totalbill = 0.0; 
         double totalamount = 0.0;
         public makesales()
         {
@@ -49,7 +51,7 @@ namespace foodcourt
         {
             Autogenerateclass a1 = new Autogenerateclass();
             int i = a1.autogenerateid("billtransaction");
-            billid = billid + 1;
+            billid = billid + i;
             txtbillid.Text = billid;
         }
         private void autogeneratebillmasterid()
@@ -65,6 +67,7 @@ namespace foodcourt
             autogeneratebillid();
             autogeneratebillmasterid();
             BindItemsType();
+      
         }
 
         private void cbitemtype_SelectedIndexChanged(object sender, EventArgs e)
@@ -115,6 +118,56 @@ namespace foodcourt
             {
                 totalamount = qty * price;
                 txttotalamount.Text = totalamount.ToString();
+            }
+        }
+        private void Displaytransactionbill()
+        {
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["constr"].ToString());
+            con.Open();
+            SqlCommand cmd = new SqlCommand("proc_displaydata", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@bmid",bmid);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            da.Fill(ds,"billtransaction");
+            
+            dataGridView1.DataSource = ds.Tables[0];
+           }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SqlConnection con=null;
+            try {
+                totalsales = totalsales + 1;
+                con = new SqlConnection(ConfigurationManager.ConnectionStrings["constr"].ToString());
+                con.Open();
+                SqlCommand cmd = new SqlCommand("proc_billtransaction", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@bid", billid);
+                cmd.Parameters.AddWithValue("@bmid", bmid);
+                cmd.Parameters.AddWithValue("@iname", cbitemname.Text);
+                cmd.Parameters.AddWithValue("@qty", txtqty.Text);
+                cmd.Parameters.AddWithValue("@amount", txttotalamount.Text);
+                cmd.Parameters.AddWithValue("@no", totalsales);
+                cmd.ExecuteNonQuery();
+                double amount = double.Parse(txttotalamount.Text);
+                totalbill = totalbill + amount;
+                label10.Text = "Total Bill is"+totalbill.ToString();
+                billid = "bid_";
+                autogeneratebillid();
+                txtprice.Text = "";
+                txtqty.Text = "";
+                txttotalamount.Text = "";
+                Displaytransactionbill();
+                totalsales = totalsales + 1;
+            }
+            catch(Exception e1)
+            {
+                Console.WriteLine(e1.Message);
+            }
+            finally
+            {
+                con.Close();
             }
         }
     }
